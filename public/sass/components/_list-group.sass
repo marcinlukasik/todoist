@@ -1,0 +1,45 @@
+.list-group
+    .list-group-item
+        border-color: $color-muted
+        background-color: transparent
+
+        .add-section
+            display: inline-block
+            color: $color-primary
+            cursor: pointer
+
+            &:hover
+                text-decoration: underline
+
+            .fa
+                margin-right: 6px
+
+.list-group-flush
+    .list-group-item
+        border-top: none
+
+        &:hover
+            .btn-action
+                opacity: 1
+
+        .l-item
+            &.is-hidden-true
+                @extend .is-hidden
+
+        .btn-action
+            min-width: 90px
+            opacity: 0
+            text-align: right
+            transition: opacity .15s ease-out
+
+            .btn
+                margin-left: 4px
+
+        .l-form
+            display: none
+
+            &.is-visible-true
+                @extend .is-visible
+
+            .btn
+                margin-right: 4px

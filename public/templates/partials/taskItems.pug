@@ -1,0 +1,12 @@
+block template
+    script(type='text/template')#taskItemsTemplate
+        ul#taskItems.list-group.list-group-flush
+        ul.list-group.list-group-flush
+            li.list-group-item
+                .form-section.is-hidden
+                    input.input-add-task-content.form-control(type='text', placeholder='np. Zrób zakupy po pracy')
+                    button.btn.btn-danger.btn-sm.save Dodaj zadanie
+                    button.btn.btn-secondary.btn-sm.cancel Anuluj
+                .add-section
+                    i.fa.fa-plus(aria-hidden='true')
+                    | Dodaj zadanie

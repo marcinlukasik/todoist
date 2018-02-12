@@ -1,0 +1,15 @@
+block template
+    script(type='text/template')#projectItemsTemplate
+        ul.list-group.list-group-flush
+            li.list-group-item
+                strong Projekty
+        ul#projectItems.list-group.list-group-flush
+        ul.list-group.list-group-flush
+            li.list-group-item
+                .form-section.is-hidden
+                    input.input-add-project-name.form-control(type='text', placeholder='np. Zakupy')
+                    button.btn.btn-danger.btn-sm.save Dodaj projekt
+                    button.btn.btn-secondary.btn-sm.cancel Anuluj
+                .add-section
+                    i.fa.fa-plus(aria-hidden='true')
+                    | Dodaj projekt

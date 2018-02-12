@@ -1,0 +1,14 @@
+block template
+    script(type='text/template')#taskItemTemplate
+        .l-item.d-flex.justify-content-between.align-items-center(class='is-hidden-{{ isEdit }}')
+            .task-content(class='{{# completed }}is-line-through{{/ completed }}')
+                | {{ content }}
+            .btn-action
+                button.btn.btn-secondary.btn-sm.edit
+                    i.fa.fa-edit(aria-hidden='true')
+                button.btn.btn-danger.btn-sm.delete
+                    i.fa.fa-trash(aria-hidden='true')
+        .l-form(class='is-visible-{{ isEdit }}')
+            input.input-content.form-control(type='text', value='{{ content }}')
+            button.btn.btn-danger.btn-sm.save Zapisz
+            button.btn.btn-secondary.btn-sm.cancel Anuluj

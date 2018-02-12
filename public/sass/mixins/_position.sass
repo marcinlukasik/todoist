@@ -1,0 +1,94 @@
+=transform ($transforms)
+    -webkit-transform: $transforms
+    transform: $transforms
+
+=translate ($x, $y)
+    @include transform(translate($x, $y))
+
+=translateX ($x)
+    @include transform(translateX($x))
+
+=translateY ($y)
+    @include transform(translateY($y))
+
+=position($position, $args, $z-index: false)
+    @each $o in (top right bottom left)
+        $i: index($args, $o)
+
+        @if ($i and $i + 1 <= length($args) and type-of(nth($args, $i + 1)) == number)
+            #{$o}: nth($args, $i + 1)
+
+    position: $position
+
+    @if $z-index
+        z-index: $z-index
+
+=absolute($args, $z-index: false)
+    +position(absolute, $args, $z-index)
+
+=fixed($args, $z-index: false)
+    +position(fixed, $args, $z-index)
+
+=relative($args, $z-index: false)
+    +position(relative, $args, $z-index)
+
+=center($axis: "both", $position: relative, $width: false, $height: false)
+    position: $position
+
+    @if $axis == "y"
+        top: 50%
+
+        @if $height != false
+            margin-top: (($height / 2) * -1)
+        @else
+            +translateY(-50%)
+
+    @if $axis == "x"
+        left: 50%
+
+        @if $width != false
+            margin-left: (($width / 2) * -1)
+        @else
+            +translateX(-50%)
+
+    @if $axis == "both"
+        top: 50%
+        left: 50%
+
+        @if $height != false and $width != false
+            margin:
+                left: (($width / 2) * -1)
+                top: (($height / 2) * -1)
+        @else
+            +translate(-50%, -50%)
+
+=center-block($width:false)
+    display: block
+    margin-left: auto
+    margin-right: auto
+
+    @if $width != false
+        max-width: $width
+        width: 100%
+
+=stretch-y ($offset-top:0, $offset-bottom:0)
+    +stretch($offset-top, false, $offset-bottom, false)
+
+=stretch-x ($offset-left:0, $offset-right:0)
+    +stretch(false, $offset-right, false, $offset-left)
+
+=stretch ($offset-top:0, $offset-right:0, $offset-bottom:0, $offset-left:0)
+    position: absolute
+    @if $offset-top
+        top: $offset-top
+    @if $offset-bottom
+        bottom: $offset-bottom
+    @if $offset-left
+        left: $offset-left
+    @if $offset-right
+        right: $offset-right
+
+=stretch-pseudo ($offset-top: 0, $offset-right: 0, $offset-bottom: 0, $offset-left: 0)
+    content: ''
+    display: block
+    +stretch($offset-top, $offset-right, $offset-bottom, $offset-left)

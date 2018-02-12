@@ -1,0 +1,14 @@
+block template
+    script(type='text/template')#projectItemTemplate
+        .l-item.d-flex.justify-content-between.align-items-center(class='is-hidden-{{ isEdit }}')
+            .project-name(data-url='{{ id }}')
+                | {{ name }}
+            .btn-action
+                button.btn.btn-secondary.btn-sm.edit
+                    i.fa.fa-edit(aria-hidden='true')
+                button.btn.btn-danger.btn-sm.delete
+                    i.fa.fa-trash(aria-hidden='true')
+        .l-form(class='is-visible-{{ isEdit }}')
+            input.input-name.form-control(type='text', value='{{ name }}')
+            button.btn.btn-danger.btn-sm.save Zapisz
+            button.btn.btn-secondary.btn-sm.cancel Anuluj

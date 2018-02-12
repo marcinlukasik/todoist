@@ -1,0 +1,41 @@
+=touch
+    -webkit-touch-callout: none
+    -webkit-user-select: none
+    -khtml-user-select: none
+    -moz-user-select: none
+    -ms-user-select: none
+    user-select: none
+
+=text-hidden
+    font: 0 / 0 serif
+    text-shadow: none
+    color: transparent
+
+=ellipsis($width)
+    display: block
+    max-width: $width
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+
+=ellipsis-line
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+
+=placeholder
+    ::-webkit-input-placeholder
+        @content
+    :-moz-placeholder
+        @content
+    ::-moz-placeholder
+        @content
+    :-ms-input-placeholder
+        @content
+
+=gradient-primary-x
+    background: #084a90
+    background: -moz-linear-gradient(left, #084a90 0%, #1363b8 73%)
+    background: -webkit-linear-gradient(left, #084a90 0%,#1363b8 73%)
+    background: linear-gradient(to right, #084a90 0%,#1363b8 73%)
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#084a90', endColorstr='#1363b8',GradientType=1 )

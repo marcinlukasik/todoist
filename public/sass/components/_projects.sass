@@ -1,0 +1,37 @@
+#app-projects
+    min-height: 100%
+    padding-top: 30px
+    padding-bottom: 30px
+
+    .list-group
+        .list-group-item
+            border: none
+
+            &.active
+                font-weight: 700
+
+                .project-name
+                    color: $color-primary
+
+                    &:before
+                        background-color: $color-primary
+
+    .project-name
+        position: relative
+        padding-left: 20px
+        cursor: pointer
+        transition: color .1s ease-out
+
+        &:before
+            content: ''
+            +absolute(left 0 top 6px)
+            +square(10px)
+            border-radius: 50%
+            background-color: $color-content
+            transition: color .1s ease-out
+
+        &:hover
+            color: $color-primary
+
+            &:before
+                background-color: $color-primary

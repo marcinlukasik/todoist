@@ -1,0 +1,23 @@
+#app-tasks
+    min-height: 100%
+    padding-top: 20px
+    padding-bottom: 30px
+    border-right: 1px solid $color-muted
+    border-left: 1px solid $color-muted
+    border-bottom: 1px solid $color-muted
+    background-color: $color-aside
+
+    +max-screen(767px)
+        border-top: 1px solid $color-muted
+
+    .list-group
+        &:last-child
+            .list-group-item
+                border-top: none
+
+    .task-content
+        cursor: pointer
+        transition: color .1s ease-out
+
+        &:hover
+            color: $color-primary
